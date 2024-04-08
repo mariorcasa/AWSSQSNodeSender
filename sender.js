@@ -1,9 +1,9 @@
 const express = require('express')
 const { SendMessageCommand, SQSClient } = require("@aws-sdk/client-sqs")
 const client = new SQSClient({
-  region: "us-east-1"
+  region: process.env.AWS_REGION,
 });
-const SQS_QUEUE_URL = "https://sqs.AWS-REGION.amazonaws.com/ACCOUNT-NUMBER/SQS-NAME";
+const SQS_QUEUE_URL = process.env.SQS_QUEUE_URL;
 const app = express()
 const port = 3000
 
